@@ -16,12 +16,15 @@
         .filter(unique)
         .filter(elementIsInViewport)
         .forEach((element) => {
-          const priceReduc = element.querySelector(
-            ".ProductCard__price"
+          const priceNoReduc = element?.querySelector(".ProductCard__price")?.innerText
+          const priceReduc = element?.querySelector(
+            ".ProductCard__price .hasReduction"
           )?.innerText;
           const name = element.querySelector(".ProductCard__title").innerText;
+          const price =  priceReduc  ?? priceNoReduc 
+
   
-          console.log(name, priceReduc);
+          console.log(name, price);
           element.dataset.dejaVu = "1";
         });
     }, 1000);
