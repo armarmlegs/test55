@@ -12,13 +12,12 @@
     };
   
     const logProduct = throttle(() => {
-      console.log("activate");
       [...document.querySelectorAll(".ProductCard__content")]
         .filter(unique)
         .filter(elementIsInViewport)
         .forEach((element) => {
           const priceReduc = element.querySelector(
-            ".ProductCard__price .hasReduction"
+            ".ProductCard__price"
           )?.innerText;
           const name = element.querySelector(".ProductCard__title").innerText;
   
